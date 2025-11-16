@@ -67,7 +67,7 @@ def main():
 
     #Saving certificate
     with open(certificate_path,"wb") as file:
-        file.write(ca_certificate.public_bytes(serialization.Encoding.PEM))
+        file.write(certificate.public_bytes(serialization.Encoding.PEM))
     print("Saved certificate")
 
     print("\nCertificate generation complete\n")

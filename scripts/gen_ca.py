@@ -14,7 +14,7 @@ CERTIFICATE_DIRECTORY = "certificates"
 def main():
     #Parsing
     parser = argparse.ArgumentParser()
-    parser.add_argument("--name",required=True,help="Common Name (CN) for Root CA")
+    parser.add_argument("--cn",required=True,help="Common Name (CN) for Root CA")
     args = parser.parse_args()
 
     #Checking directory
@@ -34,7 +34,7 @@ def main():
 
     #Creating certificate
     print("Creating self-signed CA certificate...")
-    subject = issuer = x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, args.name)])
+    subject = issuer = x509.Name([x509.NameAttribute(NameOID.COMMON_NAME, args.cn)])
     ca_certificate = (x509.CertificateBuilder()
                    .subject_name(subject)
                    .issuer_name(issuer)
